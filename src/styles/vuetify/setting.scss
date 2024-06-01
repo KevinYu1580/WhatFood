@@ -1,0 +1,48 @@
+// vuetify樣式設定檔
+
+// 修改全局樣式變數
+@forward 'vuetify/settings' with (
+  // $utilities: false,
+  // **MyButton
+  // *將vuetify的hover按鈕樣式關閉
+  $button-elevation: ('default': 0, 'hover': 0, 'active': 0),
+  // *將vuetify的預設按鈕disabld樣式關閉
+  $button-disabled-opacity: 1,
+  $button-colored-disabled: false,
+
+  // MySwitch
+  $switch-track-opacity: 1,
+  $switch-inset-thumb-height: 24px,
+  //白色圈圈高度--停用狀態 (設計稿尺寸為24px or 16px)
+  $switch-inset-thumb-off-height: 24px,
+
+  // MyInput
+  $text-field-details-padding-inline: 0px,
+
+  //輸入框底部提示字padding(左右)
+  // MySelect
+  $select-content-border-radius: 4px,
+  // 下拉選單圓角
+  $select-content-elevation: 5,
+  // 下拉選單陰影
+  $select-line-height: 1,
+
+  // 下拉選單文字行高
+  // MyDatalist
+  $combobox-content-border-radius: 4px,
+  // 下拉選單圓角
+  $combobox-content-elevation: 5,
+  // 下拉選單陰影
+  $combobox-line-height: 1,
+
+  // 下拉選單文字行高
+  //提示文字padding
+  //如track內有文字請改為46px
+  // 分割線divider
+  $divider-border-color: #9e9e9e,
+  $divider-opacity: 1,
+
+  // loader/overlay
+  $overlay-opacity: 1,
+  $overlay-scrim-background: transparent
+);

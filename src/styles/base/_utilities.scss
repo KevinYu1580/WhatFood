@@ -1,0 +1,24 @@
+// 自定義樣式彌補vuetify utility的不足，並於app.vue引入
+
+$rotateMax: 24;
+@for $i from 0 through $rotateMax {
+  $rotateDeg: $i * 15;
+  .rotate-#{$rotateDeg} {
+    transform: rotate(#{$rotateDeg}deg);
+  }
+}
+
+$width_height_Max: 20;
+@for $i from 0 through $width_height_Max {
+  $width_height: $i * 4;
+  .w-#{$width_height}px {
+    width: #{$width_height}px !important;
+  }
+  .h-#{$width_height}px {
+    height: #{$width_height}px !important;
+  }
+}
+
+.w_fit {
+  width: fit-content;
+}

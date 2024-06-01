@@ -1,0 +1,20 @@
+{
+  "global": {},
+  "header": {
+    "position": "系統管理員",
+    "systemName": "系統名稱",
+    "userName": "橙汁汗",
+    "time": "{0} 後自動登出"
+  },
+
+  "sidebar": {},
+  "datePicker": {
+    "Sun": "日",
+    "Mon": "一",
+    "Tue": "二",
+    "Wed": "三",
+    "Thu": "四",
+    "Fri": "五",
+    "Sat": "六"
+  }
+}

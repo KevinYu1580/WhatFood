@@ -1,0 +1,129 @@
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+// 文字階層 | Scale
+@mixin h1() {
+  font-size: 20px;
+  font-weight: $bold;
+  line-height: 150% !important; /* 30px */
+}
+
+@mixin h2() {
+  font-size: 18px;
+  font-weight: $bold;
+  line-height: 150% !important; /* 27px */
+}
+
+@mixin h3() {
+  font-size: 16px;
+  font-weight: $medium;
+  line-height: 150% !important; /* 24px */
+}
+
+@mixin h4() {
+  font-size: 16px;
+  font-weight: $bold;
+  line-height: 150% !important; /* 24px */
+}
+
+@mixin h5() {
+  font-size: 16px;
+  font-weight: $medium;
+  line-height: 150% !important; /* 24px */
+}
+
+@mixin title() {
+  font-size: 16px;
+  font-weight: $medium;
+  line-height: 150% !important; /* 24px */
+}
+
+@mixin subtitle() {
+  font-size: 14px;
+  font-weight: $medium;
+  line-height: 150% !important; /* 21px */
+}
+
+@mixin bodyLG() {
+  font-size: 16px;
+  font-weight: $regular;
+  line-height: 150% !important; /* 24px */
+}
+
+@mixin bodyMD {
+  font-size: 14px;
+  font-weight: $regular;
+  line-height: 150% !important; /* 21px */
+}
+
+@mixin caption() {
+  font-size: 14px;
+  font-weight: $regular;
+  line-height: 150% !important; /* 21px */
+}
+
+@mixin small() {
+  font-size: 12px;
+  font-weight: $regular;
+  line-height: 100% !important; /* 12px */
+}
+
+@mixin tableHeader() {
+  font-size: 16px;
+  font-weight: $medium;
+  line-height: 150% !important; /* 24px */
+}
+
+@mixin tableContent() {
+  font-size: 16px;
+  font-weight: $regular;
+  line-height: 150% !important; /* 24px */
+}
+@mixin input() {
+  font-size: 14px;
+  font-weight: $regular;
+  line-height: 150% !important; /* 24px */
+}
+
+@mixin buttonLG() {
+  font-size: 16px;
+  font-weight: $regular;
+  line-height: 100% !important; /* 20px */
+}
+
+@mixin buttonMD() {
+  font-size: 14px;
+  font-weight: $regular;
+  line-height: 100% !important; /* 14px */
+}
+
+@mixin buttonSM() {
+  font-size: 12px;
+  font-weight: $regular;
+  line-height: 100% !important; /* 12px */
+}
+
+@mixin dialogTitle() {
+  font-size: 18px;
+  font-weight: $bold;
+  line-height: 150% !important; /* 27px */
+}
+
+@mixin dialogContent() {
+  font-size: 16px;
+  font-weight: $regular;
+  line-height: 150% !important; /* 24px */
+}
+
+@mixin tabLG() {
+  font-size: 16px;
+  font-weight: $regular;
+  line-height: 150% !important; /* 24px */
+}
+
+@mixin tabMD() {
+  font-size: 14px;
+  font-weight: $regular;
+  line-height: 150% !important; /* 24px */
+}

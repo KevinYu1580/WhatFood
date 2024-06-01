@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "Vue.volar",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "jock.svg",
+    "yzhang.markdown-all-in-one",
+    "usernamehw.errorlens",
+    "lokalise.i18n-ally",
+    "kamikillerto.vscode-colorize"
+  ]
+}
