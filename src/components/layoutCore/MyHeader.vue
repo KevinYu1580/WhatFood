@@ -9,9 +9,8 @@
     <v-toolbar-title class="font-weight-black">{{ t('header.systemName') }}</v-toolbar-title>
     <template #append>
       <div v-show="!mobile" class="myHeader__append">
-        <div>{{ t('header.time', countdown) }}</div>
+        <!-- <div>{{ t('header.time', countdown) }}</div> -->
 
-        <div class="append__divider"></div>
         <div>{{ t('header.userName') }}</div>
         <div>{{ t('header.position') }}</div>
         <div class="append__divider"></div>
@@ -81,74 +80,74 @@ const showHamburger = computed(() => {
 
 // --- 倒數計時 ---
 // timer
-let idleTimer = null
+// let idleTimer = null
 
-function clearTimer() {
-  clearTimeout(idleTimer)
-}
+// function clearTimer() {
+//   clearTimeout(idleTimer)
+// }
 
-// 倒數計時
-const countdown = ref('')
+// // 倒數計時
+// const countdown = ref('')
 
-// 閒置15分鐘自動登出
-const setTimer = (type) => {
-  let count = 0
-  let minute = isDev ? 60 : 15 // 開發模式60秒，正式環境15分鐘
-  // 15分鐘等於 900000 毫秒
-  let totalMinute = minute * 10 * 6000
+// // 閒置15分鐘自動登出
+// const setTimer = (type) => {
+//   let count = 0
+//   let minute = isDev ? 60 : 15 // 開發模式60秒，正式環境15分鐘
+//   // 15分鐘等於 900000 毫秒
+//   let totalMinute = minute * 10 * 6000
 
-  // 重置時間
-  if (type == 'resetTimer') {
-    clearTimer()
-    count = 0
-  }
+//   // 重置時間
+//   if (type == 'resetTimer') {
+//     clearTimer()
+//     count = 0
+//   }
 
-  function plusTimer() {
-    // 每次加一秒
-    count = count + 1000
+//   function plusTimer() {
+//     // 每次加一秒
+//     count = count + 1000
 
-    // 毫秒轉成秒
-    let seconds = parseInt(totalMinute - count) / 1000
-    let days = Math.floor(seconds / (3600 * 24))
-    seconds -= days * 3600 * 24
-    let hrs = Math.floor(seconds / 3600)
-    seconds -= hrs * 3600
-    let mins = Math.floor(seconds / 60)
-    seconds -= mins * 60
+//     // 毫秒轉成秒
+//     let seconds = parseInt(totalMinute - count) / 1000
+//     let days = Math.floor(seconds / (3600 * 24))
+//     seconds -= days * 3600 * 24
+//     let hrs = Math.floor(seconds / 3600)
+//     seconds -= hrs * 3600
+//     let mins = Math.floor(seconds / 60)
+//     seconds -= mins * 60
 
-    // 秒數小於10補0
-    countdown.value = `${mins}:${seconds < 10 ? `0${seconds}` : seconds}`
+//     // 秒數小於10補0
+//     countdown.value = `${mins}:${seconds < 10 ? `0${seconds}` : seconds}`
 
-    // 15分鐘到自動登出
-    if (count == totalMinute) {
-      // 歸零
+//     // 15分鐘到自動登出
+//     if (count == totalMinute) {
+//       // 歸零
 
-      // 登出
-      userStore.logout()
-    } else {
-      idleTimer = setTimeout(plusTimer, 1000)
-    }
-  }
-  plusTimer()
-}
+//       // 登出
+//       userStore.logout()
+//     } else {
+//       idleTimer = setTimeout(plusTimer, 1000)
+//     }
+//   }
+//   plusTimer()
+// }
 
-const restartTimer = () => {
-  setTimeout(() => {
-    setTimer('resetTimer')
-  }, 1000)
-}
+// const restartTimer = () => {
+//   setTimeout(() => {
+//     setTimer('resetTimer')
+//   }, 1000)
+// }
 
-// 設置和清理
-onMounted(() => {
-  /** 重置計時器 */
-  setTimer()
-  window.addEventListener('click', restartTimer)
-})
+// // 設置和清理
+// onMounted(() => {
+//   /** 重置計時器 */
+//   setTimer()
+//   window.addEventListener('click', restartTimer)
+// })
 
-onUnmounted(() => {
-  window.removeEventListener('click', restartTimer)
-  clearTimer()
-})
+// onUnmounted(() => {
+//   window.removeEventListener('click', restartTimer)
+//   clearTimer()
+// })
 //---倒數計時 end---
 
 const languageItems = computed(() => {

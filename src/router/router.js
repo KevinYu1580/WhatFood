@@ -228,10 +228,9 @@ router.beforeResolve((to) => {
     SettingsSystem2: 'VE',
     SettingsParameter2: 'VE',
     Account: 'VE',
-    Role: 'VE',
+    Role: 'P',
     SystemLog: 'VE',
-    TestPage: 'VE',
-    GetDrink: 'VE'
+    TestPage: 'VE'
   }
 
   /**
@@ -257,39 +256,39 @@ router.beforeResolve((to) => {
   // 依據每個route的meta.requireAuth判斷是否需要驗證
 
   // 1. 先判斷meta.requireAuth型別是否為布林值(防呆)
-  if (typeof to.meta.requireAuth === 'boolean') {
-    // 2.如果需要驗證(requireAuth == true)，且沒有權限，則返回false不跳轉頁面
-    if (to.meta.requireAuth && !checkAuth(authObj[to.name])) {
-      // 請在此處執行無權限時的操作
-      alert('無權限')
-      return false
-    }
-  } else {
-    console.error('路由名稱或meta.requireAuth未設定')
-    return false
-  }
+  // if (typeof to.meta.requireAuth === 'boolean') {
+  //   // 2.如果需要驗證(requireAuth == true)，且沒有權限，則返回false不跳轉頁面
+  //   if (to.meta.requireAuth && !checkAuth(authObj[to.name])) {
+  //     // 請在此處執行無權限時的操作
+  //     alert('無權限')
+  //     return false
+  //   }
+  // } else {
+  //   console.error('路由名稱或meta.requireAuth未設定')
+  //   return false
+  // }
 
   /**
    * 檢查權限，如果有權限回傳true，沒有權限回傳false
    * @param {string} item :要檢查的權限字串
    * @returns boolean
    */
-  function checkAuth(item) {
-    const authPassed = ['VE', 'V'] // 可以通過的權限，可以自行增加
+  // function checkAuth(item) {
+  //   const authPassed = ['VE', 'V'] // 可以通過的權限，可以自行增加
 
-    // 如果權限字串不包含此路由名稱/權限名稱
-    if (!item) {
-      console.error('權限字串不包含此路由名稱/權限名稱')
-      return false
-    }
+  //   // 如果權限字串不包含此路由名稱/權限名稱
+  //   if (!item) {
+  //     console.error('權限字串不包含此路由名稱/權限名稱')
+  //     return false
+  //   }
 
-    // 如果頁面權限為authPassed內的值，則返回true代表該頁面有訪問權限，反之返回false
-    if (authPassed.includes(item)) {
-      return true
-    } else {
-      return false
-    }
-  }
+  //   // 如果頁面權限為authPassed內的值，則返回true代表該頁面有訪問權限，反之返回false
+  //   if (authPassed.includes(item)) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }
 })
 
 export default router

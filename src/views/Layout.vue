@@ -5,12 +5,8 @@
       1. groupingConfig: 如有傳入此參數，則會依照此參數將menuItems分組，反之則不分組並依照route順序排列
      -->
 
-    <!-- 排版一 -->
     <MySidebar />
-    <!-- 排版二 -->
-    <!-- <MySidebar /> -->
 
-    <!-- DESCRIPTION: header導覽列 -->
     <MyHeader />
 
     <v-main>
@@ -27,19 +23,3 @@
     </v-main>
   </v-app>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-// sideBar設定分組 & 依照pageName歸類(排版2)
-// const groupingConfig = ref([
-//   {
-//     groupTitle: '設定',
-//     groupChildren: ['Settings', 'Settings2']
-//   },
-//   {
-//     groupTitle: '系統管理',
-//     groupChildren: ['Account', 'Role', 'SystemLog', 'TestPage', 'GetDrink']
-//   }
-// ])
-</script>
