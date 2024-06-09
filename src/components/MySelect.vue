@@ -3,27 +3,28 @@
     <template v-for="(value, key) in $slots" #[key]="slotProps">
       <slot :name="key" v-bind="slotProps || {}"></slot>
     </template>
-    <template #append-inner="{ isActive }">
+    <!-- <template #append-inner="{ isActive }">
       <div class="mySelect__dropArrow" :class="{ 'mySelect__dropArrow--flip': menuIsOpen }">
         <MyIcon name="dropDownArrow" size="24"></MyIcon>
       </div>
-    </template>
+    </template> -->
     <!-- 提示訊息 -->
-    <template #message="{ message }">
+    <!-- <template #message="{ message }">
       <div class="d-flex justify-start align-center">
         <MyIcon name="warn" size="16" /> {{ message }}
       </div>
-    </template>
+    </template> -->
 
     <template #no-data> <div class="ml-4">無資料</div> </template>
     <!-- 下拉選單 -->
-    <template #item="{ props }">
+    <!-- <template #item="{ props }">
       <MyListItem v-bind="props" />
-    </template>
+    </template> -->
   </v-select>
 </template>
 
 <script setup>
+import { SassColor } from 'sass'
 import { computed, ref, useAttrs } from 'vue'
 
 const attrs = useAttrs()
@@ -31,22 +32,23 @@ const attrs = useAttrs()
 const menuIsOpen = ref(false) // 是否開啟下拉選單
 
 // Vuetify 提供的props
-const props = defineProps({
-  // type 請傳入以下
-  // search
-  // password
-  // text
-  type: {
-    type: String
-  },
-  items: {
-    type: Array,
-    required: true
-  }
-})
+// const props = defineProps({
+//   // type 請傳入以下
+//   // search
+//   // password
+//   // text
+//   type: {
+//     type: String
+//   },
+//   items: {
+//     type: Array,
+//     required: true
+//   }
+// })
 
 // 定義預設 Vuetify 提供的props
 const defaultProps = ref({
+  color: 'primary-color',
   // 'comfortable'高度為40px，需要利用css覆寫
   density: 'comfortable',
   // 'outlined'為預設樣式
@@ -59,14 +61,12 @@ const defaultProps = ref({
 
 const componentProps = computed(() => {
   return {
-    ...defaultProps.value, //預設 Vuetify 提供的props
-    ...attrs, //外部傳入的props
-    ...props
+    ...defaultProps.value //預設 Vuetify 提供的props
   }
 })
 </script>
 
-<style lang="scss" scoped>
+<!-- <style lang="scss" scoped>
 // input高度
 $inputHeight: 44px;
 
@@ -209,4 +209,4 @@ $errorBgColor: rgb(var(--v-theme-white));
 .customeList {
   // color: red;
 }
-</style>
+</style> -->

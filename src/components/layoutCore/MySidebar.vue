@@ -22,7 +22,11 @@
   >
     <template #prepend>
       <!-- 關閉的icon -->
-      <div @click="closeSidebar()" v-if="showHamburger" class="cursor-pointer w_fit ml-auto mr-4">
+      <div
+        @click="closeSidebar()"
+        v-if="showHamburger"
+        class="cursor-pointer w_fit ml-auto mr-4 mb-4"
+      >
         <MyIcon name="cross" />
       </div>
     </template>
@@ -86,7 +90,7 @@
           </span>
 
           <!-- 收合sideBar按鈕 -->
-          <MyButton
+          <!-- <MyButton
             @click="toggleSetWidth(appStore.sidebarWidth)"
             v-show="!showHamburger"
             variant="outline"
@@ -97,7 +101,7 @@
               name="doubleArrow_left"
               size="20"
             ></MyIcon
-          ></MyButton>
+          ></MyButton> -->
           <!-- 登出按鈕 -->
           <div v-show="mobile" class="cursor-pointer" @click="userStore.logout()">
             <MyIcon name="logout" size="32"></MyIcon>

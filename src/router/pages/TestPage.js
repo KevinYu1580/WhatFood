@@ -11,6 +11,9 @@ export default {
       show: true,
       icon: 'setting',
       title: 'TestPage'
+    },
+    breadcrumbs: {
+      Text: '測試頁面'
     }
   },
   component: () => import('@/views/TestPage/TestPage.vue')

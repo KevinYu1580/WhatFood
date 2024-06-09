@@ -14,7 +14,7 @@
       1. fluid: @boolean 是否取消vuetify v-container自帶的padding, max-width, margin
       2. tag: @string 自訂v-container的tag
     -->
-      <v-container fluid tag="div">
+      <v-container fluid tag="div" class="h-100">
         <!-- DESCRIPTION: 麵包屑 -->
         <MyBreadcrumbs v-if="$route.name != 'Home'" />
         <!-- DESCRIPTION: 渲染頁面 -->

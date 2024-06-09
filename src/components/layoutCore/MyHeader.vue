@@ -6,34 +6,30 @@
         <MyIcon name="hamburger"></MyIcon>
       </template>
     </v-app-bar-nav-icon>
-    <v-toolbar-title class="font-weight-black">{{ t('header.systemName') }}</v-toolbar-title>
+    <v-toolbar-title class="font-weight-black">WhatEat</v-toolbar-title>
     <template #append>
       <div v-show="!mobile" class="myHeader__append">
         <!-- <div>{{ t('header.time', countdown) }}</div> -->
 
-        <div>{{ t('header.userName') }}</div>
+        <!-- <div>{{ t('header.userName') }}</div>
         <div>{{ t('header.position') }}</div>
-        <div class="append__divider"></div>
+        <div class="append__divider"></div> -->
 
         <!-- 切換語言下拉選單 -->
-        <mySelect
+        <!-- <mySelect
           density="compact"
           v-model="current"
           :items="languageItems"
           hide-details
-        ></mySelect>
+        ></mySelect> -->
 
         <!-- 切換主題色 -->
-        <MySwitch
-          v-model="darkMode"
-          :value="true"
-          :label="`夜間模式: ${darkMode ? 'on' : 'off'}`"
-        />
+        <MySwitch v-model="darkMode" :value="true" :label="`夜間模式`" />
 
         <!-- 登出按鈕 -->
-        <div class="cursor-pointer" @click="userStore.logout()">
+        <!-- <div class="cursor-pointer" @click="userStore.logout()">
           <MyIcon name="logout" size="32"></MyIcon>
-        </div>
+        </div> -->
       </div>
     </template>
 

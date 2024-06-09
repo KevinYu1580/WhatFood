@@ -1,12 +1,23 @@
 <template>
-  <div class="d-flex flex-column ga-2">
-    <MyButton @click="sendAPI">找尋地點</MyButton>
-  </div>
+  <MySheet class="mx-auto my-auto" max-width="600">
+    <v-row no-gutters align="center" justify="center" class="mb-2 ga-3">
+      <span>方圓</span>
+      <MySelect
+        :style="{
+          maxWidth: '100px'
+        }"
+        v-model="maxDistance"
+        :items="maxDistanceItems"
+      />
+      <span>公里以內</span>
+    </v-row>
+    <v-row no-gutters align="center" justify="center" class="mt-16">
+      <MyButton class="w-50" @click="sendAPI">隨便來一個!</MyButton>
+    </v-row>
+  </MySheet>
 
-  <div class="d-flex flex-wrap">
-    <v-card width="400" v-for="item in drinkList" :text="item.name" :key="item.place_id">
-      <template #default> 評價: {{ item.rating }} ({{ item.user_ratings_total }}) </template>
-    </v-card>
+  <div>
+    <MyLuckyWheel />
   </div>
 </template>
 
@@ -35,15 +46,20 @@ onMounted(() => {
   })
 })
 
+// 最大搜尋半徑
+const maxDistance = ref(1)
+const maxDistanceItems = [1, 2.5, 5, 10, 20, 50]
+
 const sendAPI = async () => {
+  await appStore.openLoader()
+
   axios
     .get(`http://localhost:${proxyPort}/api/places_nearbysearch`, {
       params: {
         key: apiKey, // API金鑰
-
         query: '飲料', // 搜尋關鍵字
         location: `${lat.value},${lng.value}`, // 經緯度
-        radius: 2000, // 搜尋半徑:(最大50000，單位: 公尺)
+        radius: maxDistance.value * 1000, // 搜尋半徑:(最大50000，單位: 公尺)
         // type: 'cafe', // 搜尋類型
         language: 'zh-TW', // 語言
         opennow: true // 營業中
@@ -52,6 +68,7 @@ const sendAPI = async () => {
     .then((response) => {
       if (response.data.status === 'OK') {
         console.log(response.data.results)
+
         drinkList.value = response.data.results
       } else {
         throw new Error(response.data.status)
@@ -59,6 +76,9 @@ const sendAPI = async () => {
     })
     .catch((error) => {
       appStore.openModal({ name: 'error', text: `${error}<br>請聯絡開發者` })
+    })
+    .finally(() => {
+      appStore.closeLoader()
     })
 }
 </script>

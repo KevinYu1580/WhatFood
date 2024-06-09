@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { useDisplay } from 'vuetify/lib/framework.mjs'
 import { findModalSetting } from '@/utils/findModalSetting.js'
+import { set } from 'date-fns'
 
 export const useAppStore = defineStore('app', () => {
   // --- 專案主題 ---
@@ -16,9 +17,24 @@ export const useAppStore = defineStore('app', () => {
   // ---- loader----
   const showLoader = ref(false)
 
-  const closeLoader = () => (showLoader.value = false)
+  const closeLoader = () => {
+    showLoader.value = false
 
-  const openLoader = () => (showLoader.value = true)
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('loader closed')
+      }, 300)
+    })
+  }
+
+  const openLoader = () => {
+    showLoader.value = true
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('loader opened')
+      }, 300)
+    })
+  }
 
   // ---- sidebar----
   const showSidebar = ref(true)

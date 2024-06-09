@@ -19,11 +19,14 @@ import createVuetify from '@/plugins/vuetify.js'
 
 import i18n from '@/plugins/i18n'
 
+import VueLuckyCanvas from '@lucky-canvas/vue'
+
 const metaPlugins = {
   createPinia,
   router,
   i18n,
-  createVuetify
+  createVuetify,
+  VueLuckyCanvas
 }
 
 Object.keys(metaPlugins).forEach((name) => {

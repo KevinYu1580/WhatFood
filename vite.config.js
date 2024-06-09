@@ -2,7 +2,6 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import VueDevTools from 'vite-plugin-vue-devtools' //開發工具 (於畫面中 shift + alt + d 開啟)
 
 import vuetify from 'vite-plugin-vuetify' //於自動引入套件引入 vuetify (每頁無須再重複引入 vuetify元件即可於template使用)
 import svgLoader from 'vite-svg-loader'
@@ -17,7 +16,7 @@ export default defineConfig({
       },
       autoImport: true
     }),
-    VueDevTools(),
+
     svgLoader({
       defaultImport: 'component',
       svgo: false

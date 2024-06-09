@@ -75,7 +75,10 @@ function buildRoutesTree(routes, ancestors = []) {
     // 為當前路由構建包含所有祖先名稱的陣列(href: 跳轉頁面用的路由名稱, text: 顯示於畫面的名稱)
     let currentAncestors = []
     route.component
-      ? (currentAncestors = [...ancestors, { href: route.name, text: route.name }])
+      ? (currentAncestors = [
+          ...ancestors,
+          { href: route.name, text: route.meta.breadcrumbs?.Text || route.name }
+        ])
       : (currentAncestors = [...ancestors])
 
     // 創建一個新的路由對象，更新 meta 屬性來包含麵包屑資訊

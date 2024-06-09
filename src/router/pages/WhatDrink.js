@@ -1,3 +1,4 @@
+import MyBreadcrumbs from '@/components/MyBreadcrumbs.vue'
 import { menuOrder } from '@/router/order.js'
 
 const { WhatDrink } = menuOrder
@@ -13,6 +14,9 @@ export default {
       show: true,
       icon: 'setting',
       title: '今天喝什麼'
+    },
+    breadcrumbs: {
+      Text: '今天喝什麼'
     }
   }
 }
