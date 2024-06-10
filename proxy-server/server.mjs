@@ -1,31 +1,41 @@
-// const express = require('express')
-// const axios = require('axios')
-// const cors = require('cors')
-// const app = express()
-// const proxyPort = require('./config.mjs').proxyPort
+// 這是一個代理伺服器，用來轉發前端的請求到Google Maps API
 
 import express from 'express'
 import axios from 'axios'
 import cors from 'cors'
-import { proxyPort } from './config.mjs'
+import { proxyPort, portNumber } from './config.mjs'
 
 const app = express()
+
+app.use(express.json())
 
 // 啟用所有CORS請求
 app.use(cors())
 
 // 搜尋附近地點api
-app.get('/api/places_nearbysearch', async (req, res) => {
+app.post('/api/places_nearbysearch', async (req, res) => {
   try {
     const response = await axios.get('https://maps.googleapis.com/maps/api/place/textsearch/json', {
-      params: req.query
+      params: req.body
     })
     res.json(response.data)
   } catch (error) {
-    res.status(500).send(error.message)
+    res.send(error.message)
   }
 })
 
-app.listen(proxyPort, () => {
-  console.log(`Proxy server running at http://localhost:${proxyPort}`)
+// 地點詳細資訊api
+app.post('/api/places_detail', async (req, res) => {
+  try {
+    const response = await axios.get('https://maps.googleapis.com/maps/api/place/details/json', {
+      params: req.body
+    })
+    res.json(response.data)
+  } catch (error) {
+    res.send(error.message)
+  }
+})
+
+app.listen(portNumber, () => {
+  console.log(`Proxy server running at ${proxyPort}`)
 })

@@ -1,5 +1,5 @@
 // 定義路由菜單順序
-const menuOrderList = ['Home', 'WhatDrink', 'TestPage']
+const menuOrderList = ['Home', 'WhatFood', 'WhatDrink', 'TestPage']
 
 // 將菜單順序轉換為物件
 export const menuOrder = menuOrderList.reduce((acc, item, index) => {

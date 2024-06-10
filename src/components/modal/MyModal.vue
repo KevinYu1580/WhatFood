@@ -6,7 +6,7 @@
   >
     <template #default>
       <!-- 跳窗本體 -->
-      <v-card class="py-12 flex-column align-center">
+      <v-card class="py-12 flex-column align-center px-6">
         <!--icon 容器-->
         <v-card-item v-if="hasIcon" class="d-flex justify-center align-center iconWrapper pa-0">
           <ModalICon :name="appStore.currentModal.icon" />

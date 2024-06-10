@@ -1,22 +1,22 @@
 import { menuOrder } from '@/router/order.js'
 
-const { WhatDrink } = menuOrder
+const { WhatFood } = menuOrder
 
 export default {
-  path: '/WhatDrink',
-  name: 'WhatDrink',
+  path: '/WhatFood',
+  name: 'WhatFood',
   component: () => import('@/views/WhatFood/WhatFood.vue'),
 
   meta: {
-    order: WhatDrink,
+    order: WhatFood,
     requireAuth: true,
     sidebar: {
       show: true,
       icon: 'setting',
-      title: '今天喝什麼'
+      title: '今天吃什麼'
     },
     breadcrumbs: {
-      Text: '今天喝什麼'
+      Text: '今天吃什麼'
     }
   }
 }

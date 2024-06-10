@@ -33,11 +33,11 @@
         :class="{ 'cursor-auto': !menuItem.component && !appStore.sidebarExpand }"
       >
         <!-- 頁面icon -->
-        <template #prepend>
+        <!-- <template #prepend>
           <div class="item__icon" :class="{ 'bg-black-tone-95': menuItem.meta.sidebar.icon }">
             <MyIcon v-if="menuItem.meta.sidebar.icon" :name="menuItem.meta.sidebar.icon"></MyIcon>
           </div>
-        </template>
+        </template> -->
         <!-- 頁面名稱標題 -->
         <template #title>
           <!-- 標題 -->
@@ -141,7 +141,7 @@ export default {
   .sidebarListItem__item {
     position: relative;
     min-height: unset;
-    padding: 8px 8px 8px 20px;
+    padding: 16px 8px 16px 20px;
     cursor: pointer;
     color: rgb(var(--v-theme-label-color));
     @mixin itemIcon {

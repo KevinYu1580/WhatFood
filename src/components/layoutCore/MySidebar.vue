@@ -115,8 +115,6 @@
 <script setup>
 import { ref, watch, computed, onMounted } from 'vue'
 import { useAppStore } from '@/stores/appStore'
-import { useUserStore } from '@/stores/userStore'
-import { storeToRefs } from 'pinia'
 
 import { useDisplay } from 'vuetify/lib/framework.mjs'
 
@@ -131,7 +129,6 @@ import deepCopy from '@/utils/deepCopy.js'
 const { mobile } = useDisplay()
 
 // 使用者功能
-const userStore = useUserStore()
 
 const appStore = useAppStore()
 

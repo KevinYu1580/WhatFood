@@ -24,12 +24,7 @@
         ></mySelect> -->
 
         <!-- 切換主題色 -->
-        <MySwitch v-model="darkMode" :value="true" :label="`夜間模式`" />
-
-        <!-- 登出按鈕 -->
-        <!-- <div class="cursor-pointer" @click="userStore.logout()">
-          <MyIcon name="logout" size="32"></MyIcon>
-        </div> -->
+        <!-- <MySwitch v-model="darkMode" :value="true" :label="`夜間模式`" /> -->
       </div>
     </template>
 
@@ -40,12 +35,10 @@
 <script setup>
 import { ref, onMounted, computed, watch, onUnmounted } from 'vue'
 import { useAppStore } from '@/stores/appStore'
-import { useUserStore } from '@/stores/userStore'
 import { storeToRefs } from 'pinia'
 import { useDisplay, useLocale } from 'vuetify/lib/framework.mjs'
 import { set } from 'date-fns'
 
-const userStore = useUserStore() // 使用者功能
 const appStore = useAppStore() // 系統功能
 
 const darkMode = ref(false) //true為夜間模式，false為日間模式
@@ -119,7 +112,7 @@ const showHamburger = computed(() => {
 //       // 歸零
 
 //       // 登出
-//       userStore.logout()
+
 //     } else {
 //       idleTimer = setTimeout(plusTimer, 1000)
 //     }

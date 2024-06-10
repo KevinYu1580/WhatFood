@@ -2,7 +2,6 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { useDisplay } from 'vuetify/lib/framework.mjs'
 import { findModalSetting } from '@/utils/findModalSetting.js'
-import { set } from 'date-fns'
 
 export const useAppStore = defineStore('app', () => {
   // --- 專案主題 ---
@@ -134,6 +133,10 @@ export const useAppStore = defineStore('app', () => {
   const currentModal = ref({})
   // ---- modal ----
 
+  // Google API
+
+  const apiKey = ref('AIzaSyAJrX9RSNt_66ttj29_ycuG6F1WCMjLuz8')
+
   return {
     theme, //目前主題
     switchTheme, //切換主題
@@ -153,6 +156,8 @@ export const useAppStore = defineStore('app', () => {
     closeModal, //關閉跳窗
     openModal, //顯示跳窗
     currentModal, //目前跳窗資訊
-    clearModal //清空跳窗內容
+    clearModal, //清空跳窗內容
+
+    apiKey //Google API Key
   }
 })

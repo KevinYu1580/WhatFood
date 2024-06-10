@@ -18,7 +18,7 @@
         <!-- DESCRIPTION: 麵包屑 -->
         <MyBreadcrumbs v-if="$route.name != 'Home'" />
         <!-- DESCRIPTION: 渲染頁面 -->
-        <router-view />
+        <router-view :key="$route.fullPath" />
       </v-container>
     </v-main>
   </v-app>
