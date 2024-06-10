@@ -35,7 +35,8 @@ export default defineConfig({
       '@@': fileURLToPath(new URL('./', import.meta.url))
     }
   },
-  base: './',
+  // 如果為正式環境，設定為 /，否則設定為 ./
+  base: process.env.NODE_ENV === 'production' ? '/WhatFood/' : './',
 
   // 混淆器設定
   esbuild: {
