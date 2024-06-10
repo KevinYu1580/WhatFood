@@ -205,7 +205,7 @@ router.beforeEach((to, from, next) => {
 // 檢查頁面權限及token & 設定網頁title
 router.beforeResolve((to) => {
   // 設定網頁title
-  setDocumentTitle(to.meta.title || '預設標題')
+  setDocumentTitle(to.meta.title || 'WhatFood')
 
   // **打api取得權限字串
   const roleCont = 'DeviceMG%V#InspectionMG%V#Role%V#Account%V#ParameterMG%VE#SystemLog%P#'
