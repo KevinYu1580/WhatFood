@@ -12,9 +12,9 @@ if (isDev) {
 } else {
   // 判斷是否為
   if (window.location.hostname == '127.0.0.1') {
-    proxyPort = `${location.protocol}//${location.host}`
+    proxyPort = `${location.protocol}//${location.host}:${portNumber}`
   } else {
-    proxyPort = 'https://kevinyu1580.github.io/WhatFood'
+    proxyPort = `https://kevinyu1580.github.io/WhatFoodt:${portNumber}`
   }
 }
 
