@@ -14,7 +14,7 @@ if (isDev) {
   if (window.location.hostname == '127.0.0.1') {
     proxyPort = `${location.protocol}//${location.host}:${portNumber}`
   } else {
-    proxyPort = `https://kevinyu1580.github.io/WhatFoodt:${portNumber}`
+    proxyPort = `https://kevinyu1580.github.io/WhatFood:${portNumber}`
   }
 }
 
