@@ -69,9 +69,9 @@ const breadCrumbs = computed(() => {
     }
   }
   .v-breadcrumbs-item--disabled {
-    color: rgb(var(--v-theme-theme-color-teal));
+    color: rgb(var(--v-theme-primary-color-dark));
     svg {
-      color: rgb(var(--v-theme-theme-color-teal));
+      color: rgb(var(--v-theme-primary-color-dark));
     }
   }
 }

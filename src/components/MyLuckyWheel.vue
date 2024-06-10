@@ -1,56 +1,107 @@
 <template>
-  <LuckyWheel
-    ref="myLucky"
-    width="300px"
-    height="300px"
-    :prizes="prizes"
-    :blocks="blocks"
-    :buttons="buttons"
-    @start="startCallback"
-    @end="endCallback"
-  />
+  <div class="d-flex flex-column ga-4 align-center">
+    <div class="checkBtn">
+      <button
+        v-show="drawedPrize != null"
+        @click="activatePrizeDialog()"
+        class="text-decoration-underline text-primary-color-dark w-fit"
+      >
+        查看
+      </button>
+    </div>
+
+    <LuckyWheel
+      v-bind="attrs"
+      ref="myLucky"
+      :prizes="wheelList"
+      :blocks="blocks"
+      :buttons="buttons"
+      @start="startCallback"
+      @end="endCallback"
+    />
+  </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      blocks: [{ padding: '13px', background: '#617df2' }],
-      prizes: [
-        { fonts: [{ text: '0', top: '10%' }], background: '#e9e8fe' },
-        { fonts: [{ text: '1', top: '10%' }], background: '#b8c5f2' },
-        { fonts: [{ text: '2', top: '10%' }], background: '#e9e8fe' },
-        { fonts: [{ text: '3', top: '10%' }], background: '#b8c5f2' },
-        { fonts: [{ text: '4', top: '10%' }], background: '#e9e8fe' },
-        { fonts: [{ text: '5', top: '10%' }], background: '#b8c5f2' }
-      ],
-      buttons: [
-        {
-          radius: '35%',
-          background: '#8a9bf3',
-          pointer: true,
-          fonts: [{ text: '开始', top: '-10px' }]
-        }
-      ]
-    }
-  },
-  methods: {
-    // 点击抽奖按钮会触发star回调
-    startCallback() {
-      // 调用抽奖组件的play方法开始游戏
-      this.$refs.myLucky.play()
-      // 模拟调用接口异步抽奖
-      setTimeout(() => {
-        // 假设后端返回的中奖索引是0
-        const index = 0
-        // 调用stop停止旋转并传递中奖索引
-        this.$refs.myLucky.stop(index)
-      }, 3000)
-    },
-    // 抽奖结束会触发end回调
-    endCallback(prize) {
-      console.log(prize)
-    }
+<script setup>
+import { ref, useAttrs, defineProps, computed } from 'vue'
+
+const attrs = useAttrs()
+
+const props = defineProps({
+  // 請依照設計規範的原件樣式名稱傳入以下:
+  // primary-color
+  // secondary-color
+  prizes: {
+    type: Array,
+    required: true
   }
+})
+
+// 轉盤實體
+const myLucky = ref(null)
+
+// 轉盤是否為空
+const prizeIsEmpty = computed(() => {
+  return props.prizes.length == 0
+})
+
+// 轉盤列表
+const wheelList = computed(() => {
+  if (prizeIsEmpty.value) return []
+
+  return props.prizes.map((prize, index) => {
+    const displayText = prize.name.length > 5 ? prize.name.substring(0, 5) + '...' : prize.name
+
+    return {
+      fonts: [{ text: displayText, top: '10%' }],
+      background: index % 2 ? '#e9e8fe' : '#b8c5f2',
+      ...prize
+    }
+  })
+})
+
+// 轉盤區塊
+const blocks = ref([{ padding: '13px', background: '#617df2' }])
+
+// 轉盤按鈕
+const buttons = computed(() => {
+  return [
+    {
+      radius: '25%',
+      background: '#8a9bf3',
+      pointer: !prizeIsEmpty.value,
+      fonts: [{ text: prizeIsEmpty.value ? '無資料' : '抽一個!', top: '-10px' }]
+    }
+  ]
+})
+
+// 開始轉盤
+function startCallback() {
+  myLucky.value.play()
+  setTimeout(() => {
+    const index = 0
+    myLucky.value.stop(index)
+  }, 3000)
+}
+
+// 抽出的獎項
+const drawedPrize = ref(null)
+
+// 結束轉盤
+function endCallback(prize) {
+  console.log(prize)
+
+  drawedPrize.value = prize
+  console.log('抽出項目: ', drawedPrize.value)
+}
+
+function activatePrizeDialog() {
+  console.log('抽出項目: ', drawedPrize.value)
 }
 </script>
+
+<style scoped>
+.checkBtn {
+  height: 20px;
+}
+</style>

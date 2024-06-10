@@ -178,8 +178,8 @@ export default {
 
   // active
   .sidebarListItem__item.v-list-item--active {
-    background: rgb(var(--v-theme-primary-color-tint));
-    color: rgb(var(--v-theme-primary-color-dark));
+    background: rgb(var(--v-theme-secondary-color));
+    color: rgb(var(--v-theme-black-tone-95));
 
     &:before {
       content: '';

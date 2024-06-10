@@ -21,42 +21,14 @@ const props = defineProps({
     type: String,
     default: 'primary-color'
   }
-
-  // 請依照設計規範的原件樣式名稱傳入以下
-  // filled
-  // outline
-  // fab
-  // text
-  // variant: {
-  //   type: String,
-  //   default: 'filled'
-  // },
-  // 請依照設計規範的原件樣式名稱傳入以下
-  // 1.  x-small*目前設計稿無此尺寸
-  // 2.  small 對應設計搞小按鈕
-  // 3.  default 對應設計搞中按鈕
-  // 4.  large 對應設計搞大按鈕
-  // 5.  x-large *目前設計稿無此尺寸
-  // size: {
-  //   type: String,
-  //   default: 'large'
-  // }
 })
 
-// 因設計稿對於button名稱與vuetify官方定義不同，故使用以下對照物件映射到模板上的attrs
-// const variantMapping = {
-//   filled: 'elevated',
-//   outline: 'outlined',
-//   fab: 'text',
-//   text: 'text'
-// }
-
-// const defaultProps = ref({
-//   'min-width': 'fit-content'
-// })
+const defaultAttrs = {
+  elevation: 2
+}
 
 // // 綁到模板上的attrs
 const componentProps = computed(() => {
-  return { ...props }
+  return { ...defaultAttrs, ...props }
 })
 </script>

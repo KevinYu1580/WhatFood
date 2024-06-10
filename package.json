@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "whatfood",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "server": "cd proxy-server && node server.mjs"
   },
   "dependencies": {
     "@lucky-canvas/vue": "^0.1.11",

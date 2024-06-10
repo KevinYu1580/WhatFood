@@ -56,15 +56,15 @@ const vars = {
   'theme-color-brown-tint': '#d5c1b8',
 
   // 專案顏色 | Project Color
-  'primary-color': '#00979c', // 主要顏色
-  'primary-color-dark': '#007a88', // 加深變體
-  'primary-color-tint': '#e4f6f7', // 淺色變體
-  'primary-color-bg': '#F4F8F9', // 背景色
+  'primary-color': '#ff312e', // 主要顏色
+  'primary-color-dark': '#cc2724', // 加深變體
+  'primary-color-tint': '#ff9897', // 淺色變體
+  'primary-color-bg': '#ff6e6c', // 背景色
 
-  'secondary-color': '#1d7eba', // 次要顏色
-  'secondary-color-dark': '#125783', // 加深變體
-  'secondary-color-tint': '#CEECFF', // 淺色變體
-  'secondary-color-bg': '#E8F6FF' // 背景色
+  'secondary-color': '#333138', // 次要顏色
+  'secondary-color-dark': '#28272c', // 加深變體
+  'secondary-color-tint': '#99989c', // 淺色變體
+  'secondary-color-bg': '#706e73' // 背景色
 
   // *Tertiary colors(視專案需求自行增加)
   // tertiary-color: '',
